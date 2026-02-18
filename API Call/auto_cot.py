@@ -2,9 +2,8 @@ from openai import OpenAI
 import json
 import sys
 
-# 🔐 Create client (Gemini OpenAI-compatible endpoint)
 client = OpenAI(
-    api_key="AIzaSyBA9K_HbU2JV1SLio9Mr-WKcJ3WRs6bUnc",  # ⚠️ put in env variable in real projects
+    api_key="AIzaSyBA9K_HbU2JV1SLio9Mr-WKcJ3WRs6bUnc",  
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
