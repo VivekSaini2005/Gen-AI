@@ -1,0 +1,1 @@
+## Install from link - https://fastapi.tiangolo.com/#installation
