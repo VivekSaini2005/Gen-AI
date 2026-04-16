@@ -3,15 +3,26 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from typer.cli import app  # ✅ updated import
 
 # Load embedding model
+# embedding_model = HuggingFaceEmbeddings(
+#     model_name="sentence-transformers/all-MiniLM-L6-v2"
+# )
+
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = PROJECT_ROOT.parent
+
+MODEL_PATH = REPO_ROOT / "models" / "embeddinggemma"
+
 embedding_model = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
+    model_name=str(MODEL_PATH)
 )
+
 
 # Load existing DB (IMPORTANT)
 vector_store = QdrantVectorStore.from_existing_collection(
     embedding=embedding_model,
     url="http://localhost:6333",
-    collection_name="learning-rag-v2"
+    collection_name="CppBook-collection"
 )
 
 # Query
